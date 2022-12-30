@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { rootPath } from '../const';
 	import Tweet from './tweet.svelte';
 	import type { PageData } from './$types';
 
