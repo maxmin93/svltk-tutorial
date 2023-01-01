@@ -150,3 +150,8 @@ $ pnpx prisma db seed
 ![svltk-tutorial-lesson03](/static/sveltk-lesson03-crunch.png){: width="600px"}
 _svltk-tutorial-lesson03 실행화면_
 
+## 4. Lesson#04
+
+참고 : [SvelteKit Path Based Navigation](https://jumpwire.ai/blog/sveltekit-path-based-navigation)
+
+- 소스코드 [깃허브/extragood-io/svelte-kit-navigation](https://github.com/extragood-io/svelte-kit-navigation)

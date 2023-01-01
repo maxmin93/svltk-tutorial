@@ -5,22 +5,28 @@ import prisma from '$lib/prisma';
 import { timePosted } from '$lib/utils/date';
 
 export const GET = (async ({ url }) => {
-	// get the tweets and the user data (Prisma 😍)
-	const data = await prisma.tweet.findMany({
+	const profile = await prisma.user.findFirst({
+		where: { name: params.user }
+	});
+
+	const tweets = await prisma.tweet.findMany({
+		where: { user: { id: 1 } },
 		include: { user: true },
 		orderBy: { posted: 'desc' }
 	});
 
-	// get the liked tweets
 	const liked = await prisma.liked.findMany({
 		where: { userId: 1 },
 		select: { tweetId: true }
 	});
 
-	// we just want an array of the ids
-	const likedTweets = Object.keys(liked).map((key) => liked[+key].tweetId);
+	const likedTweets = Object.keys(liked).map((key) => liked[key].tweetId);
 
-	const tweets = data.map((tweet) => {
+	if (!profile || !tweets || tweets.length === 0) {
+		return { status: 404 };
+	}
+
+	const userTweets = tweets.map((tweet) => {
 		return {
 			id: tweet.id,
 			content: tweet.content,
@@ -34,9 +40,8 @@ export const GET = (async ({ url }) => {
 		};
 	});
 
-	if (!tweets) {
-		throw error(404, 'Tweets not found');
-	}
-
-	return json(tweets);
+	return {
+		status: 200,
+		body: { profile, tweets: userTweets }
+	};
 }) satisfies RequestHandler;

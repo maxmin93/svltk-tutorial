@@ -1,8 +1,8 @@
 import type { PageLoad } from './$types';
 
 export const load = (async ({ fetch, params }) => {
-	const tweets = await fetch('/lesson02/home').then((res) => res.json());
+	const photos = await fetch('/api/photos').then((res) => res.json());
 	return {
-		tweets: tweets
+		photos: photos
 	};
 }) satisfies PageLoad;

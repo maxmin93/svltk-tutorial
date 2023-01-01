@@ -9,5 +9,3 @@ export type TweetType = {
 	name: string;
 	liked: boolean;
 };
-
-// export const rootPath = '/lesson02';

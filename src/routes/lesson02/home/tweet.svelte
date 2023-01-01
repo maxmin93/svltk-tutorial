@@ -10,7 +10,7 @@
 
 <article class="tweet-container" transition:fade>
 	<a class="avatar" href="{$rootPath}/home/profile/{tweet.name}">
-		<img width="140" height="140" src="https://i.pravatar.cc/150" alt={tweet.name} />
+		<img width="140" height="140" src={tweet.avatar} alt={tweet.name} />
 	</a>
 
 	<div class="tweet-details">
@@ -56,7 +56,7 @@
 					</div>
 				</a>
 
-				<form action="{$rootPath}/home?_method=delete" method="post">
+				<form action="{$rootPath}/home?/delete" method="post">
 					<input type="hidden" name="id" value={tweet.id} />
 					<button aria-label="Remove tweet" class="btn remove" title="Remove" type="submit">
 						<div class="circle">

@@ -12,32 +12,32 @@
 		<nav>
 			<ul>
 				<li>
-					<a href="{$rootPath}/" class="logo">🐦️</a>
+					<a href="{$rootPath}/" class="logo" data-sveltekit-preload-data="tap">🐦️</a>
 				</li>
 
 				<li class:active={path === $rootPath + '/home'}>
-					<a href="{$rootPath}/home">
+					<a href="{$rootPath}/home" data-sveltekit-reload>
 						<Icon width="32" height="32" name="home" />
 						<span>Home</span>
 					</a>
 				</li>
 
 				<li class:active={path === $rootPath + '/home/profile/matia'}>
-					<a href="{$rootPath}/home/profile/matia">
+					<a href="{$rootPath}/home/profile/matia" data-sveltekit-preload-data="off">
 						<Icon width="32" height="32" name="profile" />
 						<span>Profile</span>
 					</a>
 				</li>
 
 				<li class:active={path === $rootPath + '/settings'}>
-					<a href="{$rootPath}/home/settings">
+					<a href="{$rootPath}/home/settings" data-sveltekit-preload-data="off">
 						<Icon width="32" height="32" name="settings" />
 						<span>Settings</span>
 					</a>
 				</li>
 
 				<li class:active={path === $rootPath + '/about'}>
-					<a href="{$rootPath}/home/about">
+					<a href="{$rootPath}/home/about" data-sveltekit-preload-data="off">
 						<Icon width="32" height="32" name="about" />
 						<span>About</span>
 					</a>
