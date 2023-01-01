@@ -28,7 +28,7 @@
 			</div>
 
 			<div class="actions">
-				<form action="{$rootPath}/home/like" method="post">
+				<form action="{$rootPath}/home?/like" method="post">
 					<input type="hidden" name="id" value={tweet.id} />
 					<button class="btn like" title="Like" type="submit">
 						<div class="circle">

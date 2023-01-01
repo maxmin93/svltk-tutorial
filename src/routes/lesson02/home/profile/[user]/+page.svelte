@@ -1,30 +1,27 @@
 <script lang="ts">
-	import type { User } from '@prisma/client';
-
 	import { rootPath } from '../../../const';
 	import Tweet from '../../tweet.svelte';
-	import type { TweetType } from '$lib/types/lesson02';
 
-	export let profile: User;
-	export let tweets: TweetType[];
+	import type { PageData } from './$types';
+	export let data: PageData;
 </script>
 
 <svelte:head>
-	<title>{profile.name} ({profile.handle})</title>
+	<title>{data.profile?.name} ({data.profile?.handle})</title>
 </svelte:head>
 
 <div class="profile">
-	<img class="banner" src="/profile/{profile.name}/banner.webp" alt="Profile banner" />
-	<img class="avatar" src={profile.avatar} alt={profile.name} />
+	<img class="banner" src="/profile/{data.profile?.name}/banner.webp" alt="Profile banner" />
+	<img class="avatar" src={data.profile?.avatar} alt={data.profile?.name} />
 </div>
 
 <div class="content">
 	<div class="user">
-		<span class="name">{profile.name}</span>
-		<span class="handle">{profile.handle}</span>
+		<span class="name">{data.profile?.name}</span>
+		<span class="handle">{data.profile?.handle}</span>
 	</div>
 	<div class="about">
-		<span>{profile.about}</span>
+		<span>{data.profile?.about}</span>
 	</div>
 </div>
 
@@ -35,7 +32,7 @@
 	<a href="{$rootPath}/">Likes</a>
 </nav>
 
-{#each tweets as tweet (tweet.id)}
+{#each data.tweets as tweet (tweet.id)}
 	<Tweet {tweet} />
 {/each}
 

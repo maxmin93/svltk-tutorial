@@ -4,6 +4,7 @@
 	import Navigation from './navigation.svelte';
 	import Trending from './trending.svelte';
 	import Transition from './transition.svelte';
+	import '$lib/styles/lesson02.css';
 </script>
 
 <div class="container">
